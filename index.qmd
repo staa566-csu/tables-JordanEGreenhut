@@ -1,0 +1,24 @@
+---
+title: "Tables"
+author: "Jordan Greenhut"
+format: html
+editor: visual
+---
+
+## Tables Assignment
+
+The data source is built-in R dataset, USArrests.
+
+I wanted to convey the data clearly so someone could easily read and interpret it.
+
+I chose to change the color of the unique identifier column (state name) to make it easier to find. Also, it reminds the reader how the table is organized.
+
+I chose to use booktabs and striped table styling to make the table easier to read. Without the booktabs, it is hard to tell where one column name begins and the next column name ends. Without the table styling, it is less easy to read the table.
+
+```{r}
+data(USArrests)
+library(kableExtra)
+kbl(USArrests, booktabs = T) %>%
+kable_styling(latex_options = "striped",full_width=T) %>%
+column_spec(1, bold = T, color = "red")
+```
